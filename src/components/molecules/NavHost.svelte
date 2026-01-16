@@ -2,10 +2,9 @@
 	import Nav from '../atoms/Nav.svelte';
 	import { fade, scale } from 'svelte/transition';
 
-	let y: number;
+	let y = 0;
 	let openMenu = false;
 
-	// Menu close helper
 	function closeMenu() {
 		openMenu = false;
 	}
@@ -13,7 +12,7 @@
 
 <nav>
 	<!-- DESKTOP NAV -->
-	<div class="desktop" class:scrolled={y > 20}>
+	<div class="desktop">
 		<ul>
 			<Nav href="#home" section="/" isSelected={y < 350} />
 			<Nav href="#about" section="About" isSelected={y > 350 && y < 675} />
@@ -22,22 +21,22 @@
 		</ul>
 	</div>
 
-	<!-- MOBILE HAMBURGER BOTTOM CENTER -->
+	<!-- MOBILE HAMBURGER -->
 	<button class="hamburger" on:click={() => (openMenu = true)}>
 		<span></span>
 		<span></span>
 		<span></span>
 	</button>
 
-	<!-- MOBILE MODAL -->
+	<!-- MOBILE MENU -->
 	{#if openMenu}
 		<div class="overlay" on:click={closeMenu} transition:fade />
 
 		<div class="menuBox" transition:scale>
-			<Nav href="#home" section="Home" on:click={() => closeMenu()} />
-			<Nav href="#about" section="About" on:click={() => closeMenu()} />
-			<Nav href="#pw" section="Work" on:click={() => closeMenu()} />
-			<Nav href="#collab" section="Collaborate" on:click={() => closeMenu()} />
+			<Nav href="#home" section="Home" on:select={closeMenu} />
+			<Nav href="#about" section="About" on:select={closeMenu} />
+			<Nav href="#pw" section="Work" on:select={closeMenu} />
+			<Nav href="#collab" section="Collaborate" on:select={closeMenu} />
 		</div>
 	{/if}
 </nav>
@@ -45,13 +44,16 @@
 <svelte:window bind:scrollY={y} />
 
 <style lang="scss">
-nav { position: relative; }
+nav {
+	position: relative;
+}
 
+/* DESKTOP */
 .desktop {
 	position: fixed;
 	top: 1.25rem;
 	left: 50%;
-	transform: translateX(-50%);   /* 🔥 CENTER FIX */
+	transform: translateX(-50%);
 	z-index: 10;
 
 	padding: 1rem 3rem;
@@ -60,52 +62,76 @@ nav { position: relative; }
 
 	ul {
 		display: flex;
-		align-items: center;
-		justify-content: center;
 		gap: 3rem;
 		list-style: none;
-		padding: 0;
 		margin: 0;
+		padding: 0;
 	}
 }
 
+/* HAMBURGER (MOBILE ONLY) */
 .hamburger {
-	display: none;
 	position: fixed;
 	bottom: 1.25rem;
 	left: 50%;
 	transform: translateX(-50%);
 	z-index: 20;
-	width: 56px; height: 56px;
+
+	width: 56px;
+	height: 56px;
 	border-radius: 50%;
 	background: var(--elevation-one);
 	border: none;
-	display: flex; flex-direction: column; justify-content: center; gap: 6px;
 
-	span { height: 2px; width: 24px; background: var(--accent); margin: 0 auto; }
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 6px;
+
+	span {
+		height: 2px;
+		width: 24px;
+		background: var(--accent);
+		margin: 0 auto;
+	}
 }
 
+/* OVERLAY */
 .overlay {
-	position: fixed; inset: 0;
-	background: rgba(0,0,0,0.4);
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.4);
 	backdrop-filter: blur(6px);
 	z-index: 19;
 }
 
+/* MENU BOX */
 .menuBox {
 	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	z-index: 20;
+
 	background: var(--bg-color);
 	border-radius: 16px;
 	padding: 2rem;
-	display: flex; flex-direction: column; gap: 1.2rem;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
 }
 
+/* RESPONSIVE */
 @media (max-width: 868px) {
-	.desktop { display: none; }
-	.hamburger { display: flex; }
+	.desktop {
+		display: none;
+	}
+}
+
+@media (min-width: 869px) {
+	.hamburger {
+		display: none;
+	}
 }
 </style>
