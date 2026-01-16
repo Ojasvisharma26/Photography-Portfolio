@@ -43,8 +43,11 @@
 nav {
 	display: flex;
 	justify-content: center;
+	max-width: 100vw;
+	overflow-x: hidden;
 }
 
+/* NAV WRAPPER */
 div {
 	position: fixed;
 	top: 0;
@@ -53,8 +56,8 @@ div {
 	justify-content: center;
 	align-items: center;
 
-	width: fit-content;                 /* 🔥 FIX */
-	padding: 1.25rem 3rem;              /* 🔥 FIX */
+	width: fit-content;
+	padding: 1.25rem 3rem;
 
 	background-color: var(--bg-color);
 	backdrop-filter: blur(15px);
@@ -65,30 +68,42 @@ div {
 
 	ul {
 		display: flex;
+		align-items: center;
 		gap: clamp(2rem, 4vw, 4rem);
+		list-style: none;
+		padding: 0;
+		margin: 0;
 	}
 }
 
+/* SCROLLED STATE */
 .scrolled {
 	background-color: var(--elevation-five);
-	padding: 0.75rem 3rem;              /* 🔥 FIX */
+	padding: 0.75rem 3rem;
 	box-shadow: 0px 15px 8px -10px rgba(0, 0, 0, 0.4);
 	border-bottom: 1.5px solid var(--accent-opacity);
 }
 
+/* 🔥 MOBILE FIX */
 @media (max-width: 868px) {
 	div {
 		bottom: 0;
 		top: auto;
+		left: 0;
+
 		width: 100%;
-		padding: 0.75rem 0;
+		padding: 0.6rem 0;
+
 		border-radius: 0;
 		background-color: var(--elevation-one);
 	}
 
 	div ul {
-		justify-content: space-evenly;
-		gap: 2vw;
+		width: 100%;
+		justify-content: space-between;
+		padding: 0 1rem;      /* 🔥 stops edge cutting */
+		gap: 0;
+		box-sizing: border-box;
 	}
 }
 </style>
