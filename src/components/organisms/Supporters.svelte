@@ -20,8 +20,8 @@
 	}
 </script>
 
-<section class="wrapper contact-wrapper">
-	<div class="wrapper" id="collab">
+<section class="wrapper contact-wrapper" id="collab">
+	<div class="header">
 		<h2>Contact / Collaborate</h2>
 		<p>Let’s work together</p>
 	</div>
@@ -49,7 +49,7 @@
 			placeholder="Tell me about your idea"
 			bind:value={message}
 			required
-		></textarea>
+		/>
 
 		<button type="submit">Send Message</button>
 	</form>
@@ -78,9 +78,18 @@
 <style lang="scss">
 	@import '../../styles/mixins.scss';
 
+	/* 🔥 MAIN WRAPPER */
 	.contact-wrapper {
 		position: relative;
-		padding-bottom: 4rem;
+
+		/* 🔥 MOST IMPORTANT FIX */
+		padding-bottom: calc(120px + env(safe-area-inset-bottom));
+	}
+
+	/* HEADER */
+	.header {
+		text-align: left;
+		margin-bottom: 2rem;
 	}
 
 	/* 🔥 BIG OUTLINE BACKGROUND TEXT */
@@ -128,11 +137,11 @@
 		margin-bottom: 1rem;
 	}
 
-	/* 🔥 BIGGER + BOTTOM-RIGHT SOCIAL BUTTONS */
+	/* 🔥 SOCIAL BUTTONS */
 	.social-side {
 		position: absolute;
 		right: -15rem;
-		bottom: 4rem;
+		bottom: 6rem;
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
@@ -171,7 +180,7 @@
 		);
 	}
 
-	/* MOBILE FIX */
+	/* 🔥 MOBILE FIX */
 	@media (max-width: 900px) {
 		.social-side {
 			position: static;
