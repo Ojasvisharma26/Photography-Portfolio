@@ -49,12 +49,24 @@ nav { position: relative; }
 
 .desktop {
 	position: fixed;
-	top: 0;
+	top: 1.25rem;
+	left: 50%;
+	transform: translateX(-50%);   /* 🔥 CENTER FIX */
 	z-index: 10;
+
 	padding: 1rem 3rem;
 	background: var(--bg-color);
 	border-radius: 14px;
-	ul { display: flex; gap: 3rem; list-style: none; }
+
+	ul {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 3rem;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
 }
 
 .hamburger {
