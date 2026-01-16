@@ -4,10 +4,15 @@
 
 	let y: number;
 	let openMenu = false;
+
+	// Menu close helper
+	function closeMenu() {
+		openMenu = false;
+	}
 </script>
 
 <nav>
-	<!-- DESKTOP NAV (unchanged) -->
+	<!-- DESKTOP NAV -->
 	<div class="desktop" class:scrolled={y > 20}>
 		<ul>
 			<Nav href="#home" section="/" isSelected={y < 350} />
@@ -17,7 +22,7 @@
 		</ul>
 	</div>
 
-	<!-- MOBILE HAMBURGER -->
+	<!-- MOBILE HAMBURGER BOTTOM CENTER -->
 	<button class="hamburger" on:click={() => (openMenu = true)}>
 		<span></span>
 		<span></span>
@@ -26,13 +31,13 @@
 
 	<!-- MOBILE MODAL -->
 	{#if openMenu}
-		<div class="overlay" on:click={() => (openMenu = false)} transition:fade />
+		<div class="overlay" on:click={closeMenu} transition:fade />
 
 		<div class="menuBox" transition:scale>
-			<Nav href="#home" section="Home" />
-			<Nav href="#about" section="About" />
-			<Nav href="#pw" section="Work" />
-			<Nav href="#collab" section="Collaborate" />
+			<Nav href="#home" section="Home" on:click={closeMenu} />
+			<Nav href="#about" section="About" on:click={closeMenu} />
+			<Nav href="#pw" section="Work" on:click={closeMenu} />
+			<Nav href="#collab" section="Collaborate" on:click={closeMenu} />
 		</div>
 	{/if}
 </nav>
@@ -64,12 +69,13 @@ nav {
 .hamburger {
 	display: none;
 	position: fixed;
-	bottom: 1rem;
-	right: 1rem;
+	bottom: 1.25rem;  /* fixed bottom */
+	left: 50%;
+	transform: translateX(-50%);
 	z-index: 20;
 
-	width: 52px;
-	height: 52px;
+	width: 56px;
+	height: 56px;
 	border-radius: 50%;
 	background: var(--elevation-one);
 	border: none;
@@ -81,7 +87,7 @@ nav {
 
 	span {
 		height: 2px;
-		width: 22px;
+		width: 24px;
 		background: var(--accent);
 		margin: 0 auto;
 	}
