@@ -1,0 +1,214 @@
+[
+    {
+        "name": "DSCN1102",
+        "tall": true,
+        "subtitle": "#1"
+    },
+    {
+        "name": "DSCN1106",
+        "tall": false,
+        "subtitle": "#2"
+    },
+    {
+        "name": "DSCN1112",
+        "tall": true,
+        "subtitle": "#3"
+    },  
+    {
+        "name": "DSCN1119",
+        "tall": false,
+        "subtitle": "#4"
+    },
+    {
+        "name": "DSCN1125",
+        "tall": true,
+        "subtitle": "#5"
+    },
+    {
+        "name": "DSCN1131",
+        "tall": true,
+        "subtitle": "#6"
+    },
+    {
+        "name": "DSCN1136",
+        "tall": true,
+        "subtitle": "#7"
+    },
+    {
+        "name": "DSCN1137",
+        "tall": true,
+        "subtitle": "#8"
+    },
+    {
+        "name": "DSCN1140",
+        "tall": true,
+        "subtitle": "#9"
+    },
+    {
+        "name": "DSCN1141",
+        "tall": true,
+        "subtitle": "#10"
+    },
+    {
+        "name": "DSCN1143",
+        "tall": true,
+        "subtitle": "#11"
+    },
+    {
+        "name": "DSCN1146",
+        "tall": true,
+        "subtitle": "#12"
+    },
+    {
+        "name": "DSCN1148",
+        "tall": true,
+        "subtitle": "#13"
+    },
+    {
+        "name": "DSCN1149",
+        "tall": true,
+        "subtitle": "#14"
+    },
+    {
+        "name": "DSCN1153",
+        "tall": true,
+        "subtitle": "#15"
+    },
+    {
+        "name": "DSCN1157",
+        "tall": true,
+        "subtitle": "#16"
+    },
+    {
+        "name": "DSCN1180",
+        "tall": true,
+        "subtitle": "#17"
+    },
+    {
+        "name": "DSCN1233",
+        "tall": true,
+        "subtitle": "#18"
+    },
+    {
+        "name": "DSCN1273",
+        "tall": true,
+        "subtitle": "#19"
+    },
+    {
+        "name": "DSCN1275",
+        "tall": true,
+        "subtitle": "#20"
+    },
+    {
+        "name": "RSCN1103",
+        "tall": true,
+        "subtitle": "#21"
+    },
+    {
+        "name": "RSCN1161",
+        "tall": true,
+        "subtitle": "#22"
+    },
+    {
+        "name": "RSCN1162",
+        "tall": true,
+        "subtitle": "#23"
+    },
+    {
+        "name": "RSCN1199",
+        "tall": true,
+        "subtitle": "#24"
+    },
+    {
+        "name": "RSCN1235",
+        "tall": true,
+        "subtitle": "#25"
+    },
+    {
+        "name": "RSCN1236",
+        "tall": true,
+        "subtitle": "#26"
+    },
+    {
+        "name": "RSCN1240",
+        "tall": true,
+        "subtitle": "#27"
+    },
+    {
+        "name": "RSCN1254",
+        "tall": true,
+        "subtitle": "#28"
+    },
+    {
+        "name": "RSCN1276",
+        "tall": true,
+        "subtitle": "#29"
+    },
+    {
+        "name": "RSCN1277",
+        "tall": true,
+        "subtitle": "#30"
+    },
+    {
+        "name": "Building",
+        "tall": true,
+        "subtitle": "#31"
+    },
+    {
+        "name": "ChainSmoker",
+        "tall": true,
+        "subtitle": "#32"
+    },
+    {
+        "name": "Motion",
+        "tall": true,
+        "subtitle": "#33"
+    },
+    {
+        "name": "Newspaper",
+        "tall": true,
+        "subtitle": "#34",
+        "ext": "jpg"
+    },
+    {
+        "name": "Panwadi",
+        "tall": true,
+        "subtitle": "#35"
+    },
+    {
+        "name": "Poet",
+        "tall": true,
+        "subtitle": "#36"
+    },
+    {
+        "name": "Tobacco",
+        "tall": true,
+        "subtitle": "#37",
+        "ext": "webp"
+    },
+    {
+        "name": "TreeToBuilding",
+        "tall": true,
+        "subtitle": "#38"
+    },
+    {
+        "name": "DSCN1373",
+        "tall": true,
+        "subtitle": "#39"
+    },
+    {
+        "name": "DSCN1384",
+        "tall": true,
+        "subtitle": "#40"
+    },
+    {
+        "name": "DSCN1416",
+        "tall": false,
+        "subtitle": "#41"
+    },
+    {
+        "name": "DSCN1364",
+        "tall": false,
+        "subtitle": "#42"
+    }
+]
