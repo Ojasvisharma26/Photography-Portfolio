@@ -172,20 +172,36 @@
 	}
 
 	/* ✅ ONLY MOBILE FIX — DESKTOP SAFE */
-	@media (max-width: 900px) {
-		.contact-wrapper {
-			padding-bottom: 7.5rem; /* bottom fixed nav ke liye space */
-		}
+	@media (max-width: 868px) {
+	div {
+		top: auto;
+		bottom: 0;
+		left: 0;
 
-		.social-side {
-			position: static;
-			margin-top: 2.5rem;
-			flex-direction: row;
-			justify-content: center;
-		}
+		width: 100%;
+		height: 64px;
 
-		.contact-wrapper::before {
-			display: none;
-		}
+		padding-bottom: env(safe-area-inset-bottom);
+		border-radius: 0;
+		background-color: var(--elevation-one);
 	}
+
+	div ul {
+		width: 100%;
+		height: 100%;
+		padding: 0 1rem;
+
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		box-sizing: border-box;
+	}
+
+	/* 🔥 YEH ADD KAR */
+	:global(span),
+	:global(p) {
+		display: none;
+	}
+}
 </style>
