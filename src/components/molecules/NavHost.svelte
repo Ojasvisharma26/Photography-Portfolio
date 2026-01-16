@@ -12,7 +12,7 @@
 </script>
 
 <nav>
-	<!-- DESKTOP NAV -->
+	<!-- DESKTOP NAV (unchanged) -->
 	<div class="desktop" class:scrolled={y > 20}>
 		<ul>
 			<Nav href="#home" section="/" isSelected={y < 350} />
@@ -31,9 +31,12 @@
 
 	<!-- MOBILE MODAL -->
 	{#if openMenu}
+		<!-- Overlay click closes menu -->
 		<div class="overlay" on:click={closeMenu} transition:fade />
 
+		<!-- Menu box -->
 		<div class="menuBox" transition:scale>
+			<!-- Buttons click closes menu -->
 			<Nav href="#home" section="Home" on:click={closeMenu} />
 			<Nav href="#about" section="About" on:click={closeMenu} />
 			<Nav href="#pw" section="Work" on:click={closeMenu} />
