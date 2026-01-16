@@ -1,1 +1,191 @@
-<script lang="ts"> let name = ''; let email = ''; let handle = ''; let collabType = ''; let message = ''; let success = false; async function submitForm() { const res = await fetch('https://formspree.io/f/mgooeopj', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, email, handle, collabType, message }) }); if (res.ok) { success = true; name = email = handle = collabType = message = ''; } } </script> <section class="wrapper contact-wrapper"> <div class="wrapper" id="collab"> <h2>Contact / Collaborate</h2> <p>Let’s work together</p> </div> {#if success} <p class="success">✅ Message sent successfully!</p> {/if} <form class="contact-form" on:submit|preventDefault={submitForm}> <input type="text" placeholder="Your Name" bind:value={name} required /> <input type="email" placeholder="Your Email" bind:value={email} required /> <input type="text" placeholder="Instagram / Website" bind:value={handle} /> <select bind:value={collabType} required> <option value="" disabled selected>Type of Collaboration</option> <option>Brand Collaboration</option> <option>Content Creation</option> <option>Event / Shoot</option> <option>Freelance Work</option> <option>Other</option> </select> <textarea rows="4" placeholder="Tell me about your idea" bind:value={message} required ></textarea> <button type="submit">Send Message</button> </form> <!-- SOCIAL BUTTONS --> <div class="social-side"> <a href="https://wa.me/919990166033" target="_blank" rel="noopener" class="whatsapp" > WhatsApp </a> <a href="https://www.instagram.com/shutteryaar_/" target="_blank" rel="noopener" class="instagram" > Instagram </a> </div> </section> <style lang="scss"> @import '../../styles/mixins.scss'; .contact-wrapper { position: relative; padding-bottom: 4rem; } /* 🔥 BIG OUTLINE BACKGROUND TEXT */ .contact-wrapper::before { @include outlineText( $content: 'COLLAB', $translateX: 85%, $translateY: 12%, $fontSize: 260px, $opacity: 0.18 ); } .contact-form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; } input, select, textarea { padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid #ccc; font-size: 0.95rem; } button { margin-top: 0.5rem; background: black; color: white; padding: 0.85rem; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; } .success { text-align: center; color: #4caf50; margin-bottom: 1rem; } /* 🔥 BIGGER + BOTTOM-RIGHT SOCIAL BUTTONS */ .social-side { position: absolute; right: -15rem; bottom: 4rem; display: flex; flex-direction: column; gap: 1rem; } .social-side a { text-decoration: none; color: white; padding: 0.9rem 1.6rem; border-radius: 999px; font-size: 1rem; font-weight: 700; min-width: 140px; text-align: center; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25); transition: transform 0.25s ease, box-shadow 0.25s ease; } .social-side a:hover { transform: translateY(-4px); box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35); } .whatsapp { background: #25d366; } .instagram { background: linear-gradient( 45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888 ); } /* MOBILE FIX */ @media (max-width: 900px) { .social-side { position: static; margin-top: 2.5rem; flex-direction: row; justify-content: center; } .contact-wrapper::before { display: none; } } </style>
+<script lang="ts">
+	let name = '';
+	let email = '';
+	let handle = '';
+	let collabType = '';
+	let message = '';
+	let success = false;
+
+	async function submitForm() {
+		const res = await fetch('https://formspree.io/f/mgooeopj', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ name, email, handle, collabType, message })
+		});
+
+		if (res.ok) {
+			success = true;
+			name = email = handle = collabType = message = '';
+		}
+	}
+</script>
+
+<section class="wrapper contact-wrapper">
+	<div class="wrapper" id="collab">
+		<h2>Contact / Collaborate</h2>
+		<p>Let’s work together</p>
+	</div>
+
+	{#if success}
+		<p class="success">✅ Message sent successfully!</p>
+	{/if}
+
+	<form class="contact-form" on:submit|preventDefault={submitForm}>
+		<input type="text" placeholder="Your Name" bind:value={name} required />
+		<input type="email" placeholder="Your Email" bind:value={email} required />
+		<input type="text" placeholder="Instagram / Website" bind:value={handle} />
+
+		<select bind:value={collabType} required>
+			<option value="" disabled selected>Type of Collaboration</option>
+			<option>Brand Collaboration</option>
+			<option>Content Creation</option>
+			<option>Event / Shoot</option>
+			<option>Freelance Work</option>
+			<option>Other</option>
+		</select>
+
+		<textarea
+			rows="4"
+			placeholder="Tell me about your idea"
+			bind:value={message}
+			required
+		></textarea>
+
+		<button type="submit">Send Message</button>
+	</form>
+
+	<!-- SOCIAL BUTTONS -->
+	<div class="social-side">
+		<a
+			href="https://wa.me/919990166033"
+			target="_blank"
+			rel="noopener"
+			class="whatsapp"
+		>
+			WhatsApp
+		</a>
+		<a
+			href="https://www.instagram.com/shutteryaar_/"
+			target="_blank"
+			rel="noopener"
+			class="instagram"
+		>
+			Instagram
+		</a>
+	</div>
+</section>
+
+<style lang="scss">
+	@import '../../styles/mixins.scss';
+
+	.contact-wrapper {
+		position: relative;
+		padding-bottom: 4rem; /* desktop unchanged */
+	}
+
+	/* 🔥 BIG OUTLINE BACKGROUND TEXT */
+	.contact-wrapper::before {
+		@include outlineText(
+			$content: 'COLLAB',
+			$translateX: 85%,
+			$translateY: 12%,
+			$fontSize: 260px,
+			$opacity: 0.18
+		);
+	}
+
+	.contact-form {
+		max-width: 500px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	input,
+	select,
+	textarea {
+		padding: 0.75rem 1rem;
+		border-radius: 8px;
+		border: 1px solid #ccc;
+		font-size: 0.95rem;
+	}
+
+	button {
+		margin-top: 0.5rem;
+		background: black;
+		color: white;
+		padding: 0.85rem;
+		border-radius: 8px;
+		border: none;
+		cursor: pointer;
+		font-weight: 600;
+	}
+
+	.success {
+		text-align: center;
+		color: #4caf50;
+		margin-bottom: 1rem;
+	}
+
+	/* 🔥 BIGGER + BOTTOM-RIGHT SOCIAL BUTTONS (DESKTOP) */
+	.social-side {
+		position: absolute;
+		right: -15rem;
+		bottom: 4rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.social-side a {
+		text-decoration: none;
+		color: white;
+		padding: 0.9rem 1.6rem;
+		border-radius: 999px;
+		font-size: 1rem;
+		font-weight: 700;
+		min-width: 140px;
+		text-align: center;
+		box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+		transition: transform 0.25s ease, box-shadow 0.25s ease;
+	}
+
+	.social-side a:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+	}
+
+	.whatsapp {
+		background: #25d366;
+	}
+
+	.instagram {
+		background: linear-gradient(
+			45deg,
+			#f09433,
+			#e6683c,
+			#dc2743,
+			#cc2366,
+			#bc1888
+		);
+	}
+
+	/* ✅ ONLY MOBILE FIX — DESKTOP SAFE */
+	@media (max-width: 900px) {
+		.contact-wrapper {
+			padding-bottom: 7.5rem; /* bottom fixed nav ke liye space */
+		}
+
+		.social-side {
+			position: static;
+			margin-top: 2.5rem;
+			flex-direction: row;
+			justify-content: center;
+		}
+
+		.contact-wrapper::before {
+			display: none;
+		}
+	}
+</style>
