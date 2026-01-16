@@ -181,9 +181,8 @@
 		width: 100%;
 		height: 64px;
 
-		padding-bottom: env(safe-area-inset-bottom);
-		border-radius: 0;
 		background-color: var(--elevation-one);
+		border-radius: 0;
 	}
 
 	div ul {
@@ -194,14 +193,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-
-		box-sizing: border-box;
-	}
-
-	/* 🔥 YEH ADD KAR */
-	:global(span),
-	:global(p) {
-		display: none;
 	}
 }
 </style>
