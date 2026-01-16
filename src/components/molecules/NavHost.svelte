@@ -12,7 +12,7 @@
 </script>
 
 <nav>
-	<!-- DESKTOP NAV (unchanged) -->
+	<!-- DESKTOP NAV -->
 	<div class="desktop" class:scrolled={y > 20}>
 		<ul>
 			<Nav href="#home" section="/" isSelected={y < 350} />
@@ -31,16 +31,13 @@
 
 	<!-- MOBILE MODAL -->
 	{#if openMenu}
-		<!-- Overlay click closes menu -->
 		<div class="overlay" on:click={closeMenu} transition:fade />
 
-		<!-- Menu box -->
 		<div class="menuBox" transition:scale>
-			<!-- Buttons click closes menu -->
-			<Nav href="#home" section="Home" on:click={closeMenu} />
-			<Nav href="#about" section="About" on:click={closeMenu} />
-			<Nav href="#pw" section="Work" on:click={closeMenu} />
-			<Nav href="#collab" section="Collaborate" on:click={closeMenu} />
+			<Nav href="#home" section="Home" on:click={() => closeMenu()} />
+			<Nav href="#about" section="About" on:click={() => closeMenu()} />
+			<Nav href="#pw" section="Work" on:click={() => closeMenu()} />
+			<Nav href="#collab" section="Collaborate" on:click={() => closeMenu()} />
 		</div>
 	{/if}
 </nav>
@@ -48,11 +45,8 @@
 <svelte:window bind:scrollY={y} />
 
 <style lang="scss">
-nav {
-	position: relative;
-}
+nav { position: relative; }
 
-/* DESKTOP NAV */
 .desktop {
 	position: fixed;
 	top: 0;
@@ -60,76 +54,46 @@ nav {
 	padding: 1rem 3rem;
 	background: var(--bg-color);
 	border-radius: 14px;
-
-	ul {
-		display: flex;
-		gap: 3rem;
-		list-style: none;
-	}
+	ul { display: flex; gap: 3rem; list-style: none; }
 }
 
-/* HAMBURGER ICON */
 .hamburger {
 	display: none;
 	position: fixed;
-	bottom: 1.25rem;  /* fixed bottom */
+	bottom: 1.25rem;
 	left: 50%;
 	transform: translateX(-50%);
 	z-index: 20;
-
-	width: 56px;
-	height: 56px;
+	width: 56px; height: 56px;
 	border-radius: 50%;
 	background: var(--elevation-one);
 	border: none;
+	display: flex; flex-direction: column; justify-content: center; gap: 6px;
 
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	gap: 6px;
-
-	span {
-		height: 2px;
-		width: 24px;
-		background: var(--accent);
-		margin: 0 auto;
-	}
+	span { height: 2px; width: 24px; background: var(--accent); margin: 0 auto; }
 }
 
-/* OVERLAY */
 .overlay {
-	position: fixed;
-	inset: 0;
-	background: rgba(0, 0, 0, 0.4);
+	position: fixed; inset: 0;
+	background: rgba(0,0,0,0.4);
 	backdrop-filter: blur(6px);
 	z-index: 19;
 }
 
-/* MENU BOX */
 .menuBox {
 	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	z-index: 20;
-
 	background: var(--bg-color);
 	border-radius: 16px;
 	padding: 2rem;
-
-	display: flex;
-	flex-direction: column;
-	gap: 1.2rem;
+	display: flex; flex-direction: column; gap: 1.2rem;
 }
 
-/* MOBILE ONLY */
 @media (max-width: 868px) {
-	.desktop {
-		display: none;
-	}
-
-	.hamburger {
-		display: flex;
-	}
+	.desktop { display: none; }
+	.hamburger { display: flex; }
 }
 </style>
